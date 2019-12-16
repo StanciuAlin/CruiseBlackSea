@@ -16,7 +16,7 @@ namespace CruiseBlackSea
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new StartApp());
+            Application.Run(new Login());
         }
     }
 }
