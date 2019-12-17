@@ -12,14 +12,14 @@ namespace CruiseBlackSea
 {
     public partial class CurrentUserForm : Form
     {
-        public CurrentUserForm()
-        {
-            InitializeComponent();
-        }
-        //public CurrentUserForm(string messageWelcome)
+        //public CurrentUserForm()
         //{
         //    InitializeComponent();
-        //    lblWelcomeCurrentUserForm.Text = messageWelcome;
         //}
+        public CurrentUserForm(string messageWelcome)
+        {
+            InitializeComponent();
+            lblWelcomeCurrentUserForm.Text = messageWelcome;
+        }
     }
 }
