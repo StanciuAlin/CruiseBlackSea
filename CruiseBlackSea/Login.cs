@@ -17,8 +17,11 @@ namespace CruiseBlackSea
         private DataSet dataSet = new DataSet();
         private DataTable dataTable = new DataTable();
         private Thread threadCurrentUserForm;
+        private String message = "Welcome ";
+
         string connString = "Data Source=DESKTOP-I3Q9AOD\\SQLEXPRESS;Initial Catalog=cruise;Integrated Security=True";
 
+        
 
         public Login()
         {
@@ -43,9 +46,10 @@ namespace CruiseBlackSea
                         if (query.SingleOrDefault() != null)
                         {
                             MessageBox.Show("Successfully log in! ");
+                            
+                            this.message = this.message + tbxUserName.Text;
                             //Create a new thread with a new form
                             this.Close();
-                            string str = "fvsf";
                             threadCurrentUserForm = new Thread(openLoginForm);
                             threadCurrentUserForm.SetApartmentState(ApartmentState.STA);
                             threadCurrentUserForm.Start();
@@ -67,9 +71,8 @@ namespace CruiseBlackSea
             Console.ReadLine();
         }
 
-        private void openLoginForm(string message)
+        private int getCurrentUserType()
         {
-
             using (SqlConnection connection = new SqlConnection(connString))
             {
                 try
@@ -78,7 +81,7 @@ namespace CruiseBlackSea
                     //Console.WriteLine(this.tbxUserName.Text + "hhhhhh");
                     using (LogInModel logInModel = new LogInModel())
                     {
-                        
+
                         //Sql command to get type of user
                         string sqlCommand = "SELECT grant_user FROM AppUser WHERE user_name_app LIKE 'pop_user'";
                         SqlCommand command = new SqlCommand(sqlCommand, connection);
@@ -98,17 +101,18 @@ namespace CruiseBlackSea
                         Console.WriteLine();
                         string message = "Welcome n " + tbxUserName.Top;
 
-                        if (row["grant_user"].ToString() == "0" )
+                        if (row["grant_user"].ToString() == "0")
                         {
-                            Application.Run(new CurrentUserForm(message));
-                        } 
-                        else if(row["grant_user"].ToString() == "1")
+                            return 0; //current user is normal user
+                        }
+                        else if (row["grant_user"].ToString() == "1")
                         {
-                            Application.Run(new CurrentUserForm(message));
+                            return 1; //current user is admin user
                         }
                         else
                         {
                             MessageBox.Show("Impossible to connect!");
+                            return -1;
                         }
                     }
                 }
@@ -122,9 +126,18 @@ namespace CruiseBlackSea
                     connection.Close();
                 }
             }
-            Console.ReadLine();
+        }
 
-            
+        private void openLoginForm()
+        {
+            if(getCurrentUserType() == 0)
+            {
+                Application.Run(new CurrentUserForm(message, 0));
+            }
+            else if(getCurrentUserType() == 1)
+            {
+                Application.Run(new CurrentUserForm(message, 1));
+            }
         }
     }
 }

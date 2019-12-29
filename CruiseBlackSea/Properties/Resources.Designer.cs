@@ -63,6 +63,16 @@ namespace CruiseBlackSea.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Black_Sea {
+            get {
+                object obj = ResourceManager.GetObject("Black_Sea", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap cruise {
             get {
                 object obj = ResourceManager.GetObject("cruise", resourceCulture);
@@ -83,9 +93,9 @@ namespace CruiseBlackSea.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap exit__1_ {
+        internal static System.Drawing.Bitmap exit_Button {
             get {
-                object obj = ResourceManager.GetObject("exit (1)", resourceCulture);
+                object obj = ResourceManager.GetObject("exit_Button", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

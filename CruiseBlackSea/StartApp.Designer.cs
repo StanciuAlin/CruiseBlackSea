@@ -54,7 +54,7 @@
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExit.Font = new System.Drawing.Font("Stencil", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExit.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.btnExit.Image = global::CruiseBlackSea.Properties.Resources.exit__1_;
+            this.btnExit.Image = global::CruiseBlackSea.Properties.Resources.exit_Button;
             this.btnExit.Location = new System.Drawing.Point(231, 208);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(164, 78);

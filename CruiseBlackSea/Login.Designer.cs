@@ -45,7 +45,7 @@
             this.pbLoginForm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pbLoginForm.Image = global::CruiseBlackSea.Properties.Resources.loginImage;
             this.pbLoginForm.Location = new System.Drawing.Point(101, 15);
-            this.pbLoginForm.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbLoginForm.Margin = new System.Windows.Forms.Padding(4);
             this.pbLoginForm.Name = "pbLoginForm";
             this.pbLoginForm.Size = new System.Drawing.Size(213, 166);
             this.pbLoginForm.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -62,9 +62,9 @@
             this.gbLoginForm.Font = new System.Drawing.Font("Stencil", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbLoginForm.ForeColor = System.Drawing.Color.DodgerBlue;
             this.gbLoginForm.Location = new System.Drawing.Point(16, 143);
-            this.gbLoginForm.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbLoginForm.Margin = new System.Windows.Forms.Padding(4);
             this.gbLoginForm.Name = "gbLoginForm";
-            this.gbLoginForm.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbLoginForm.Padding = new System.Windows.Forms.Padding(4);
             this.gbLoginForm.Size = new System.Drawing.Size(403, 268);
             this.gbLoginForm.TabIndex = 1;
             this.gbLoginForm.TabStop = false;
@@ -73,7 +73,7 @@
             // 
             this.tbxPassword.Font = new System.Drawing.Font("Stylus BT", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxPassword.Location = new System.Drawing.Point(220, 123);
-            this.tbxPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbxPassword.Margin = new System.Windows.Forms.Padding(4);
             this.tbxPassword.Name = "tbxPassword";
             this.tbxPassword.PasswordChar = '*';
             this.tbxPassword.Size = new System.Drawing.Size(132, 35);
@@ -83,11 +83,10 @@
             // 
             this.tbxUserName.Font = new System.Drawing.Font("Stylus BT", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxUserName.Location = new System.Drawing.Point(220, 75);
-            this.tbxUserName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbxUserName.Margin = new System.Windows.Forms.Padding(4);
             this.tbxUserName.Name = "tbxUserName";
             this.tbxUserName.Size = new System.Drawing.Size(132, 35);
             this.tbxUserName.TabIndex = 3;
-            this.tbxUserName.Text = "uhy";
             // 
             // lblPassword
             // 
@@ -117,7 +116,7 @@
             this.btnLogInLoginForm.FlatAppearance.MouseOverBackColor = System.Drawing.Color.AliceBlue;
             this.btnLogInLoginForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogInLoginForm.Location = new System.Drawing.Point(123, 186);
-            this.btnLogInLoginForm.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLogInLoginForm.Margin = new System.Windows.Forms.Padding(4);
             this.btnLogInLoginForm.Name = "btnLogInLoginForm";
             this.btnLogInLoginForm.Size = new System.Drawing.Size(139, 38);
             this.btnLogInLoginForm.TabIndex = 0;
@@ -134,7 +133,7 @@
             this.Controls.Add(this.pbLoginForm);
             this.Controls.Add(this.gbLoginForm);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
