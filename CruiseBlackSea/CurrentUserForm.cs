@@ -15,6 +15,7 @@ namespace CruiseBlackSea
     {
         Thread threadUpdateDistance;
         Thread threadListCruises;
+        Thread threadTouristForm;
 
         private bool flagEndCreateCruise = false;
         HashSet<int> harbours = new HashSet<int>();
@@ -39,19 +40,25 @@ namespace CruiseBlackSea
             this.Text = messageWelcome;
             typeUser = flag;
 
+            SetCurrentUser();
+
             pbBlackSea.Enabled = false;
         }
 
-        private void GetCurrentUserType()
+        private void SetCurrentUser()
         {
             if (typeUser == 0)
             {
-                //CreateFormNormalUser();
+                //CreateFormNormalUser(); -> Tourist
+                //start a new thread for update form
+                threadUpdateDistance = new Thread(openTouristForm);
+                threadUpdateDistance.SetApartmentState(ApartmentState.STA);
+                threadUpdateDistance.Start();
+
             }
             else if (typeUser == 1)
             {
                 //CreateFormAdminUser();
-
             } 
             else
             {
@@ -59,7 +66,12 @@ namespace CruiseBlackSea
             }
         }
 
-        private void CreateFormAdminUser()
+        private void openTouristForm()
+        {
+            Application.Run(new TouristForm());
+
+        }
+            private void CreateFormAdminUser()
         {
             //pbBlackSea.Click += new EventHandler(pbBlackSea_Click);
         }      
