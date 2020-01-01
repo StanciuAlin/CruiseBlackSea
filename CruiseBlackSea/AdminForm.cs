@@ -11,18 +11,15 @@ using System.Windows.Forms;
 
 namespace CruiseBlackSea
 {
-    public partial class CurrentUserForm : Form
+    public partial class AdminForm : Form
     {
         Thread threadUpdateDistance;
         Thread threadListCruises;
-        Thread threadTouristForm;
 
         private bool flagEndCreateCruise = false;
         HashSet<int> harbours = new HashSet<int>();
 
-        private int typeUser = -1;
-
-        public CurrentUserForm(string messageWelcome, int flag)
+        public AdminForm(string messageWelcome)
         {
             InitializeComponent();
 
@@ -36,45 +33,10 @@ namespace CruiseBlackSea
             timerDateTime.Tick += new EventHandler(timerDateTime_Tick);
             timerDateTime.Enabled = true;
             //first message -> Title
-            lblWelcomeCurrentUserForm.Text = messageWelcome;
-            this.Text = messageWelcome;
-            typeUser = flag;
-
-            SetCurrentUser();
+            lblWelcomeCurrentUserForm.Text += messageWelcome;
 
             pbBlackSea.Enabled = false;
-        }
-
-        private void SetCurrentUser()
-        {
-            if (typeUser == 0)
-            {
-                //CreateFormNormalUser(); -> Tourist
-                //start a new thread for update form
-                threadUpdateDistance = new Thread(openTouristForm);
-                threadUpdateDistance.SetApartmentState(ApartmentState.STA);
-                threadUpdateDistance.Start();
-
-            }
-            else if (typeUser == 1)
-            {
-                //CreateFormAdminUser();
-            } 
-            else
-            {
-                MessageBox.Show("Incorrect user selected!", "User Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void openTouristForm()
-        {
-            Application.Run(new TouristForm());
-
-        }
-            private void CreateFormAdminUser()
-        {
-            //pbBlackSea.Click += new EventHandler(pbBlackSea_Click);
-        }      
+        }   
 
         #region HarboursButtons
         private void btnConstanta_Click(object sender, EventArgs e)

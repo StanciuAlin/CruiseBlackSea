@@ -16,10 +16,10 @@ namespace CruiseBlackSea
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new CurrentUserForm("Heeeei", 0));
+            //Application.Run(new AdminForm("Heeeei", 0));
             //Application.Run(new UpdateDistanceForm());
-            //Application.Run(new Login());
-            //Application.Run(new TouristForm());
+            Application.Run(new TouristForm("pop"));
+            //Application.Run(new StartApp());
 
         }
     }

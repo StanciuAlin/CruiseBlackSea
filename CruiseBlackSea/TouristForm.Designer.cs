@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.statusStripListCruises = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLblDateTime = new System.Windows.Forms.ToolStripStatusLabel();
             this.timerDateTime = new System.Windows.Forms.Timer(this.components);
@@ -58,7 +58,7 @@
             this.statusStripListCruises.Location = new System.Drawing.Point(0, 472);
             this.statusStripListCruises.Name = "statusStripListCruises";
             this.statusStripListCruises.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.statusStripListCruises.Size = new System.Drawing.Size(831, 22);
+            this.statusStripListCruises.Size = new System.Drawing.Size(627, 22);
             this.statusStripListCruises.TabIndex = 31;
             this.statusStripListCruises.Text = "statusStripUpdateDistanceForm";
             // 
@@ -79,11 +79,10 @@
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Stencil", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.lblTitle.Location = new System.Drawing.Point(340, 9);
+            this.lblTitle.Location = new System.Drawing.Point(184, 11);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(112, 29);
+            this.lblTitle.Size = new System.Drawing.Size(0, 29);
             this.lblTitle.TabIndex = 32;
-            this.lblTitle.Text = "Tourist";
             // 
             // cbxSelectCruisePeriod
             // 
@@ -95,17 +94,19 @@
             "3 days",
             "5 days",
             "8 days"});
-            this.cbxSelectCruisePeriod.Location = new System.Drawing.Point(241, 49);
+            this.cbxSelectCruisePeriod.Location = new System.Drawing.Point(207, 54);
             this.cbxSelectCruisePeriod.Name = "cbxSelectCruisePeriod";
             this.cbxSelectCruisePeriod.Size = new System.Drawing.Size(121, 28);
             this.cbxSelectCruisePeriod.TabIndex = 37;
+            this.cbxSelectCruisePeriod.Text = "3 days";
+            this.cbxSelectCruisePeriod.SelectionChangeCommitted += new System.EventHandler(this.cbxSelectCruisePeriod_SelectionChangeCommitted);
             // 
             // lblCruiseType
             // 
             this.lblCruiseType.AutoSize = true;
             this.lblCruiseType.Font = new System.Drawing.Font("Stencil", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCruiseType.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.lblCruiseType.Location = new System.Drawing.Point(45, 52);
+            this.lblCruiseType.Location = new System.Drawing.Point(16, 57);
             this.lblCruiseType.Name = "lblCruiseType";
             this.lblCruiseType.Size = new System.Drawing.Size(199, 20);
             this.lblCruiseType.TabIndex = 36;
@@ -116,7 +117,7 @@
             this.lblStartPeriodTouristForm.AutoSize = true;
             this.lblStartPeriodTouristForm.Font = new System.Drawing.Font("Stencil", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStartPeriodTouristForm.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.lblStartPeriodTouristForm.Location = new System.Drawing.Point(45, 88);
+            this.lblStartPeriodTouristForm.Location = new System.Drawing.Point(16, 93);
             this.lblStartPeriodTouristForm.Name = "lblStartPeriodTouristForm";
             this.lblStartPeriodTouristForm.Size = new System.Drawing.Size(128, 20);
             this.lblStartPeriodTouristForm.TabIndex = 38;
@@ -127,7 +128,7 @@
             this.lblEndPeriodTouristForm.AutoSize = true;
             this.lblEndPeriodTouristForm.Font = new System.Drawing.Font("Stencil", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEndPeriodTouristForm.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.lblEndPeriodTouristForm.Location = new System.Drawing.Point(45, 120);
+            this.lblEndPeriodTouristForm.Location = new System.Drawing.Point(16, 125);
             this.lblEndPeriodTouristForm.Name = "lblEndPeriodTouristForm";
             this.lblEndPeriodTouristForm.Size = new System.Drawing.Size(107, 20);
             this.lblEndPeriodTouristForm.TabIndex = 39;
@@ -138,7 +139,7 @@
             this.dTPStartPeriodTourist.CalendarTitleBackColor = System.Drawing.Color.LightSkyBlue;
             this.dTPStartPeriodTourist.CalendarTitleForeColor = System.Drawing.SystemColors.HotTrack;
             this.dTPStartPeriodTourist.Font = new System.Drawing.Font("Stencil", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dTPStartPeriodTourist.Location = new System.Drawing.Point(241, 82);
+            this.dTPStartPeriodTourist.Location = new System.Drawing.Point(207, 87);
             this.dTPStartPeriodTourist.Name = "dTPStartPeriodTourist";
             this.dTPStartPeriodTourist.Size = new System.Drawing.Size(200, 28);
             this.dTPStartPeriodTourist.TabIndex = 40;
@@ -148,7 +149,7 @@
             this.dTPEndPeriodTourist.CalendarTitleBackColor = System.Drawing.Color.LightSkyBlue;
             this.dTPEndPeriodTourist.CalendarTitleForeColor = System.Drawing.SystemColors.HotTrack;
             this.dTPEndPeriodTourist.Font = new System.Drawing.Font("Stencil", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dTPEndPeriodTourist.Location = new System.Drawing.Point(241, 114);
+            this.dTPEndPeriodTourist.Location = new System.Drawing.Point(207, 119);
             this.dTPEndPeriodTourist.Name = "dTPEndPeriodTourist";
             this.dTPEndPeriodTourist.Size = new System.Drawing.Size(200, 28);
             this.dTPEndPeriodTourist.TabIndex = 41;
@@ -158,7 +159,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Stencil", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.label1.Location = new System.Drawing.Point(45, 152);
+            this.label1.Location = new System.Drawing.Point(16, 157);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(155, 20);
             this.label1.TabIndex = 42;
@@ -168,7 +169,7 @@
             // 
             this.tbxDistanceBetweenHarboursUpdateDistanceForm.Font = new System.Drawing.Font("Stencil", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxDistanceBetweenHarboursUpdateDistanceForm.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.tbxDistanceBetweenHarboursUpdateDistanceForm.Location = new System.Drawing.Point(241, 149);
+            this.tbxDistanceBetweenHarboursUpdateDistanceForm.Location = new System.Drawing.Point(207, 154);
             this.tbxDistanceBetweenHarboursUpdateDistanceForm.Name = "tbxDistanceBetweenHarboursUpdateDistanceForm";
             this.tbxDistanceBetweenHarboursUpdateDistanceForm.Size = new System.Drawing.Size(75, 28);
             this.tbxDistanceBetweenHarboursUpdateDistanceForm.TabIndex = 43;
@@ -177,32 +178,32 @@
             // 
             this.dgvListCruises.AllowUserToAddRows = false;
             this.dgvListCruises.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Stencil", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.MidnightBlue;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvListCruises.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Stencil", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.MidnightBlue;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvListCruises.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvListCruises.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Stencil", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.DodgerBlue;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvListCruises.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Stencil", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.DodgerBlue;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvListCruises.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvListCruises.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvListCruises.GridColor = System.Drawing.SystemColors.Desktop;
-            this.dgvListCruises.Location = new System.Drawing.Point(12, 193);
+            this.dgvListCruises.Location = new System.Drawing.Point(12, 198);
             this.dgvListCruises.Name = "dgvListCruises";
             this.dgvListCruises.ReadOnly = true;
             this.dgvListCruises.RowHeadersVisible = false;
             this.dgvListCruises.RowTemplate.Height = 24;
             this.dgvListCruises.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvListCruises.Size = new System.Drawing.Size(805, 268);
+            this.dgvListCruises.Size = new System.Drawing.Size(603, 268);
             this.dgvListCruises.TabIndex = 44;
             // 
             // btnBuyTicket
@@ -214,7 +215,7 @@
             this.btnBuyTicket.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuyTicket.Font = new System.Drawing.Font("Stencil", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuyTicket.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.btnBuyTicket.Location = new System.Drawing.Point(570, 92);
+            this.btnBuyTicket.Location = new System.Drawing.Point(439, 100);
             this.btnBuyTicket.Margin = new System.Windows.Forms.Padding(4);
             this.btnBuyTicket.Name = "btnBuyTicket";
             this.btnBuyTicket.Size = new System.Drawing.Size(169, 34);
@@ -228,7 +229,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(831, 494);
+            this.ClientSize = new System.Drawing.Size(627, 494);
             this.Controls.Add(this.btnBuyTicket);
             this.Controls.Add(this.dgvListCruises);
             this.Controls.Add(this.tbxDistanceBetweenHarboursUpdateDistanceForm);
@@ -244,6 +245,7 @@
             this.Font = new System.Drawing.Font("Stencil", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "TouristForm";
             this.Text = "Tourist";
+            this.Load += new System.EventHandler(this.TouristForm_Load);
             this.statusStripListCruises.ResumeLayout(false);
             this.statusStripListCruises.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListCruises)).EndInit();

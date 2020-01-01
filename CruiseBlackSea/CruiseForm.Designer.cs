@@ -60,7 +60,7 @@
             this.toolStripStatusLblDateTime.Font = new System.Drawing.Font("Sitka Small", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripStatusLblDateTime.ForeColor = System.Drawing.Color.DodgerBlue;
             this.toolStripStatusLblDateTime.Name = "toolStripStatusLblDateTime";
-            this.toolStripStatusLblDateTime.Size = new System.Drawing.Size(0, 19);
+            this.toolStripStatusLblDateTime.Size = new System.Drawing.Size(0, 17);
             // 
             // pictureBox1
             // 
@@ -72,6 +72,7 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 32;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
             // 
             // CruiseForm
             // 

@@ -1,6 +1,6 @@
 ﻿namespace CruiseBlackSea
 {
-    partial class CurrentUserForm
+    partial class AdminForm
     {
         /// <summary>
         /// Required designer variable.
@@ -407,7 +407,7 @@
             this.btnListCruises.UseVisualStyleBackColor = false;
             this.btnListCruises.Click += new System.EventHandler(this.btnListCruises_Click);
             // 
-            // CurrentUserForm
+            // AdminForm
             // 
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(1199, 561);
@@ -430,7 +430,7 @@
             this.Controls.Add(this.btnSamsun);
             this.Controls.Add(this.btnKozlu);
             this.Controls.Add(this.btnIstanbul);
-            this.Name = "CurrentUserForm";
+            this.Name = "AdminForm";
             this.Text = "Current User";
             ((System.ComponentModel.ISupportInitialize)(this.pbBlackSea)).EndInit();
             this.gbxCruisesCurrentUser.ResumeLayout(false);

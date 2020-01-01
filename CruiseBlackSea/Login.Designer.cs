@@ -148,10 +148,10 @@
 
         private System.Windows.Forms.PictureBox pbLoginForm;
         private System.Windows.Forms.GroupBox gbLoginForm;
-        private System.Windows.Forms.TextBox tbxPassword;
-        private System.Windows.Forms.TextBox tbxUserName;
         private System.Windows.Forms.Label lblPassword;
         private System.Windows.Forms.Label lblUsername;
         private System.Windows.Forms.Button btnLogInLoginForm;
+        private System.Windows.Forms.TextBox tbxPassword;
+        private System.Windows.Forms.TextBox tbxUserName;
     }
 }

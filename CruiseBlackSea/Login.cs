@@ -19,9 +19,10 @@ namespace CruiseBlackSea
         private Thread threadCurrentUserForm;
         private String message = "Welcome ";
 
-        string connString = "Data Source=DESKTOP-I3Q9AOD\\SQLEXPRESS;Initial Catalog=cruise;Integrated Security=True";
+        private string user = "";
+        private string password = "";
 
-        
+        string connString = "Data Source=DESKTOP-I3Q9AOD\\SQLEXPRESS;Initial Catalog=cruise;Integrated Security=True";
 
         public Login()
         {
@@ -31,6 +32,8 @@ namespace CruiseBlackSea
 
         private void btnLogInLoginForm_Click(object sender, EventArgs e)
         {
+            user = tbxUserName.Text;
+            password = tbxPassword.Text;
 
             using (SqlConnection connection = new SqlConnection(connString))
             {
@@ -83,11 +86,12 @@ namespace CruiseBlackSea
                     {
 
                         //Sql command to get type of user
-                        string sqlCommand = "SELECT grant_user FROM AppUser WHERE user_name_app LIKE 'pop_user'";
+                        string sqlCommand = "SELECT grant_user FROM AppUser WHERE user_name_app=@UserName AND password_user=@PasswordUser";
                         SqlCommand command = new SqlCommand(sqlCommand, connection);
                         Console.WriteLine(tbxUserName.Text);
-                        command.Parameters.Add("@UserName", SqlDbType.VarChar, 100).Value = tbxUserName.Text;
-                        command.Parameters.Add("@PasswordUser", SqlDbType.VarChar, 100).Value = tbxPassword.Text;
+                        command.Parameters.Add("@UserName", SqlDbType.VarChar, 100).Value = user;
+                        command.Parameters.Add("@PasswordUser", SqlDbType.VarChar, 100).Value = password;
+                        command.ExecuteNonQuery();
                         SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
 
                         DataTable dataTable = new DataTable();
@@ -103,11 +107,11 @@ namespace CruiseBlackSea
 
                         if (row["grant_user"].ToString() == "0")
                         {
-                            return 0; //current user is normal user
+                            return 0; //current user is normal user -> Tourist
                         }
                         else if (row["grant_user"].ToString() == "1")
                         {
-                            return 1; //current user is admin user
+                            return 1; //current user is admin user -> Admin
                         }
                         else
                         {
@@ -130,14 +134,16 @@ namespace CruiseBlackSea
 
         private void openLoginForm()
         {
+            CurrentUserManager currentUserManager = new CurrentUserManager();
             if(getCurrentUserType() == 0)
             {
-                Application.Run(new CurrentUserForm(message, 0));
+                currentUserManager.SetCurrentUser(message, 0);
             }
             else if(getCurrentUserType() == 1)
             {
-                Application.Run(new CurrentUserForm(message, 1));
+                currentUserManager.SetCurrentUser(message, 1);
             }
         }
+
     }
 }

@@ -66,12 +66,13 @@
     <Compile Include="CruiseForm.Designer.cs">
       <DependentUpon>CruiseForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="CurrentUserForm.cs">
+    <Compile Include="AdminForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CurrentUserForm.Designer.cs">
-      <DependentUpon>CurrentUserForm.cs</DependentUpon>
+    <Compile Include="AdminForm.Designer.cs">
+      <DependentUpon>AdminForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="CurrentUserManager.cs" />
     <Compile Include="DBConnection.cs" />
     <Compile Include="Harbour.cs" />
     <Compile Include="ListCruisesForm.cs">
@@ -111,8 +112,8 @@
     <EmbeddedResource Include="CruiseForm.resx">
       <DependentUpon>CruiseForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CurrentUserForm.resx">
-      <DependentUpon>CurrentUserForm.cs</DependentUpon>
+    <EmbeddedResource Include="AdminForm.resx">
+      <DependentUpon>AdminForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ListCruisesForm.resx">
       <DependentUpon>ListCruisesForm.cs</DependentUpon>
