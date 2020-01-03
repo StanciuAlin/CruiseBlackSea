@@ -52,12 +52,12 @@
             this.btnInitAll = new System.Windows.Forms.Button();
             this.gbxCruisesCurrentUser = new System.Windows.Forms.GroupBox();
             this.gbxCruiseManagementCurrentUser = new System.Windows.Forms.GroupBox();
+            this.btnListCruises = new System.Windows.Forms.Button();
             this.statusStripUpdateDistance = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLblDateTime = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabelCoordinates = new System.Windows.Forms.ToolStripStatusLabel();
-            this.timerDateTime = new System.Windows.Forms.Timer(this.components);
             this.toolStripStatusLabelVersion = new System.Windows.Forms.ToolStripStatusLabel();
-            this.btnListCruises = new System.Windows.Forms.Button();
+            this.timerDateTime = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pbBlackSea)).BeginInit();
             this.gbxCruisesCurrentUser.SuspendLayout();
             this.gbxCruiseManagementCurrentUser.SuspendLayout();
@@ -346,6 +346,25 @@
             this.gbxCruiseManagementCurrentUser.TabStop = false;
             this.gbxCruiseManagementCurrentUser.Text = "Cruise management";
             // 
+            // btnListCruises
+            // 
+            this.btnListCruises.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnListCruises.Enabled = false;
+            this.btnListCruises.FlatAppearance.BorderColor = System.Drawing.Color.LightSkyBlue;
+            this.btnListCruises.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnListCruises.FlatAppearance.MouseOverBackColor = System.Drawing.Color.AliceBlue;
+            this.btnListCruises.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnListCruises.Font = new System.Drawing.Font("Stencil", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnListCruises.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.btnListCruises.Location = new System.Drawing.Point(23, 201);
+            this.btnListCruises.Margin = new System.Windows.Forms.Padding(4);
+            this.btnListCruises.Name = "btnListCruises";
+            this.btnListCruises.Size = new System.Drawing.Size(197, 38);
+            this.btnListCruises.TabIndex = 23;
+            this.btnListCruises.Text = "List cruises";
+            this.btnListCruises.UseVisualStyleBackColor = false;
+            this.btnListCruises.Click += new System.EventHandler(this.btnListCruises_Click);
+            // 
             // statusStripUpdateDistance
             // 
             this.statusStripUpdateDistance.GripStyle = System.Windows.Forms.ToolStripGripStyle.Visible;
@@ -378,34 +397,15 @@
             this.toolStripStatusLabelCoordinates.Size = new System.Drawing.Size(599, 23);
             this.toolStripStatusLabelCoordinates.Text = "Coordinates X = 0; Y = 0";
             // 
-            // timerDateTime
-            // 
-            this.timerDateTime.Enabled = true;
-            this.timerDateTime.Interval = 1000;
-            // 
             // toolStripStatusLabelVersion
             // 
             this.toolStripStatusLabelVersion.Name = "toolStripStatusLabelVersion";
             this.toolStripStatusLabelVersion.Size = new System.Drawing.Size(0, 23);
             // 
-            // btnListCruises
+            // timerDateTime
             // 
-            this.btnListCruises.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnListCruises.Enabled = false;
-            this.btnListCruises.FlatAppearance.BorderColor = System.Drawing.Color.LightSkyBlue;
-            this.btnListCruises.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightSkyBlue;
-            this.btnListCruises.FlatAppearance.MouseOverBackColor = System.Drawing.Color.AliceBlue;
-            this.btnListCruises.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnListCruises.Font = new System.Drawing.Font("Stencil", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnListCruises.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.btnListCruises.Location = new System.Drawing.Point(23, 201);
-            this.btnListCruises.Margin = new System.Windows.Forms.Padding(4);
-            this.btnListCruises.Name = "btnListCruises";
-            this.btnListCruises.Size = new System.Drawing.Size(197, 38);
-            this.btnListCruises.TabIndex = 23;
-            this.btnListCruises.Text = "List cruises";
-            this.btnListCruises.UseVisualStyleBackColor = false;
-            this.btnListCruises.Click += new System.EventHandler(this.btnListCruises_Click);
+            this.timerDateTime.Enabled = true;
+            this.timerDateTime.Interval = 1000;
             // 
             // AdminForm
             // 
@@ -430,6 +430,7 @@
             this.Controls.Add(this.btnSamsun);
             this.Controls.Add(this.btnKozlu);
             this.Controls.Add(this.btnIstanbul);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "AdminForm";
             this.Text = "Current User";
             ((System.ComponentModel.ISupportInitialize)(this.pbBlackSea)).EndInit();

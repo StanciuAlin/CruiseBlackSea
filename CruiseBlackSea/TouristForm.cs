@@ -15,6 +15,7 @@ namespace CruiseBlackSea
     public partial class TouristForm : Form
     {
         private Thread _threadFinalCruise;
+        private Thread _threadReturnToLoginCruise;
 
         private string _connString = "Data Source=DESKTOP-I3Q9AOD\\SQLEXPRESS;Initial Catalog=cruise;Integrated Security=True";
 
@@ -148,35 +149,22 @@ namespace CruiseBlackSea
                         /// de rezolvat ori inserare, ori update la o croaziera facuta,
                         /// si apoi adaug datele din formular
 
-
                         //Sql command to get cruises conditioned by period of cruise, selected by _user
 
-                        string sqlCommand = "INSERT INTO cruise.dbo.Cruise VALUES (3, '1 5 7 11', '2019-10-10', '2019-11-10', 1000, 2);";
+                        string sqlCommand = "INSERT INTO Cruise.dbo.Cruise (type_cruise, harbour_list, date_start, date_end, price, number_passengers) VALUES (@type_cruise, @harbour_list, @date_start, @date_end, @price, @number_passengers);";
                         SqlCommand command = new SqlCommand(sqlCommand, connection);
 
                         //add period of cruise selected by _user
                         command.Parameters.Add("@type_cruise", SqlDbType.Int, 100, "type_cruise").Value = Convert.ToString(cbxSelectCruisePeriod.SelectedItem.ToString()[0]);
-
+                        command.Parameters.Add("@harbour_list", SqlDbType.VarChar, 100, "harbour_list").Value = "1 3 5 7";
+                        command.Parameters.Add("@date_start", SqlDbType.Date, 100, "date_start").Value = Convert.ToString(dTPStartPeriodTourist.Value.ToString());
+                        command.Parameters.Add("@date_end", SqlDbType.Date, 100, "date_end").Value = Convert.ToString(dTPEndPeriodTourist.Value.ToString());
+                        command.Parameters.Add("@price", SqlDbType.Real, 100).Value = Convert.ToString((GetCruisePrice("1 3 5 7") * 100) * Convert.ToInt16(tbxDistanceBetweenHarboursUpdateDistanceForm.Text.ToString()));
+                        command.Parameters.Add("@number_passengers", SqlDbType.Int, 100, "number_passengers").Value = Convert.ToString(tbxDistanceBetweenHarboursUpdateDistanceForm.Text.ToString());
+                        //command.Parameters.Add("@user_id_cruise", SqlDbType.Int, 100, "user_id_cruise").Value = Login.IdCurrentUserLogged;
+                        command.ExecuteNonQuery();
                         //retain data with data adapter, add data in data set, and show the table in data grid view
 
-                        SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
-                        DataTable dataTable = new DataTable();
-                        DataSet dataSet = new DataSet();
-
-                        dataSet.Reset();
-                        dataAdapter.Fill(dataSet);
-                        dataTable = dataSet.Tables[0];
-
-                        //set column header for data showed
-                        dataTable.Columns[0].ColumnName = "ID";
-                        dataTable.Columns[1].ColumnName = "Circuit";
-                        dataTable.Columns[2].ColumnName = "Date Start";
-                        dataTable.Columns[3].ColumnName = "Date End";
-                        dataTable.Columns[4].ColumnName = "Price";
-                        dataTable.Columns[5].ColumnName = "Passengers";
-
-                        //set data grid source to table
-                        dgvListCruises.DataSource = dataTable;
                     }
                 }
                 catch (Exception ex)
@@ -202,11 +190,6 @@ namespace CruiseBlackSea
             //this.Close();
         }
 
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         #endregion
 
         #region Utilities
@@ -225,7 +208,26 @@ namespace CruiseBlackSea
 
         }
 
+        private void openReturnToLoginCruise()
+        {
+            Application.Run(new Login());
+
+        }
+
+        private short GetCruisePrice(string cruiseString)
+        {
+            return Convert.ToInt16(cruiseString.Length / 2 + 1);
+        }
+
         #endregion
 
+        private void btnReturnToLogin_Click(object sender, EventArgs e)
+        {
+            _threadReturnToLoginCruise = new Thread(openReturnToLoginCruise);
+            _threadReturnToLoginCruise.SetApartmentState(ApartmentState.STA);
+            _threadReturnToLoginCruise.Start();
+
+            this.Close();
+        }
     }
 }

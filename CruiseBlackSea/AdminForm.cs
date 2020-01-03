@@ -182,6 +182,7 @@ namespace CruiseBlackSea
         private void btnFinishCruiseCurrentUserForm_Click(object sender, EventArgs e)
         {
             _flagEndCreateCruise = true;
+            toolStripStatusLabelCoordinates.Text = "";
             pbBlackSea.Enabled = false;
         }
 

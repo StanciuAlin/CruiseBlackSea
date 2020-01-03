@@ -65,33 +65,35 @@
             this.gbLoginForm.Margin = new System.Windows.Forms.Padding(4);
             this.gbLoginForm.Name = "gbLoginForm";
             this.gbLoginForm.Padding = new System.Windows.Forms.Padding(4);
-            this.gbLoginForm.Size = new System.Drawing.Size(403, 268);
+            this.gbLoginForm.Size = new System.Drawing.Size(403, 249);
             this.gbLoginForm.TabIndex = 1;
             this.gbLoginForm.TabStop = false;
             // 
             // tbxPassword
             // 
-            this.tbxPassword.Font = new System.Drawing.Font("Stylus BT", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxPassword.Location = new System.Drawing.Point(220, 123);
+            this.tbxPassword.Font = new System.Drawing.Font("Swis721 BT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxPassword.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.tbxPassword.Location = new System.Drawing.Point(205, 126);
             this.tbxPassword.Margin = new System.Windows.Forms.Padding(4);
             this.tbxPassword.Name = "tbxPassword";
             this.tbxPassword.PasswordChar = '*';
-            this.tbxPassword.Size = new System.Drawing.Size(132, 35);
+            this.tbxPassword.Size = new System.Drawing.Size(146, 31);
             this.tbxPassword.TabIndex = 4;
             // 
             // tbxUserName
             // 
-            this.tbxUserName.Font = new System.Drawing.Font("Stylus BT", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxUserName.Location = new System.Drawing.Point(220, 75);
+            this.tbxUserName.Font = new System.Drawing.Font("Swis721 BT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxUserName.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.tbxUserName.Location = new System.Drawing.Point(205, 75);
             this.tbxUserName.Margin = new System.Windows.Forms.Padding(4);
             this.tbxUserName.Name = "tbxUserName";
-            this.tbxUserName.Size = new System.Drawing.Size(132, 35);
+            this.tbxUserName.Size = new System.Drawing.Size(146, 31);
             this.tbxUserName.TabIndex = 3;
             // 
             // lblPassword
             // 
             this.lblPassword.AutoSize = true;
-            this.lblPassword.Location = new System.Drawing.Point(48, 127);
+            this.lblPassword.Location = new System.Drawing.Point(51, 130);
             this.lblPassword.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Size = new System.Drawing.Size(113, 24);
@@ -101,7 +103,7 @@
             // lblUsername
             // 
             this.lblUsername.AutoSize = true;
-            this.lblUsername.Location = new System.Drawing.Point(41, 79);
+            this.lblUsername.Location = new System.Drawing.Point(51, 79);
             this.lblUsername.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUsername.Name = "lblUsername";
             this.lblUsername.Size = new System.Drawing.Size(119, 24);
@@ -115,7 +117,7 @@
             this.btnLogInLoginForm.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightSkyBlue;
             this.btnLogInLoginForm.FlatAppearance.MouseOverBackColor = System.Drawing.Color.AliceBlue;
             this.btnLogInLoginForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogInLoginForm.Location = new System.Drawing.Point(123, 186);
+            this.btnLogInLoginForm.Location = new System.Drawing.Point(119, 188);
             this.btnLogInLoginForm.Margin = new System.Windows.Forms.Padding(4);
             this.btnLogInLoginForm.Name = "btnLogInLoginForm";
             this.btnLogInLoginForm.Size = new System.Drawing.Size(139, 38);
@@ -129,7 +131,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(431, 423);
+            this.ClientSize = new System.Drawing.Size(431, 405);
             this.Controls.Add(this.pbLoginForm);
             this.Controls.Add(this.gbLoginForm);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

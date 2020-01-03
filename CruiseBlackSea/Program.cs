@@ -18,8 +18,8 @@ namespace CruiseBlackSea
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new AdminForm("Heeeei", 0));
             //Application.Run(new UpdateDistanceForm());
-            Application.Run(new TouristForm("pop"));
-            //Application.Run(new StartApp());
+            //Application.Run(new TouristForm("pop"));
+            Application.Run(new TouristForm("graef"));
 
         }
     }

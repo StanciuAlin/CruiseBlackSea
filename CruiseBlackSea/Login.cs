@@ -26,6 +26,10 @@ namespace CruiseBlackSea
 
         private string _connString = "Data Source=DESKTOP-I3Q9AOD\\SQLEXPRESS;Initial Catalog=cruise;Integrated Security=True";
 
+        //public static int idCurrentUserLogged = 0;
+
+        static public int IdCurrentUserLogged { get; private set; }
+
         public Login()
         {
             InitializeComponent();
@@ -87,7 +91,7 @@ namespace CruiseBlackSea
                     using (LogInModel logInModel = new LogInModel())
                     {
                         // Sql command to get type of _user
-                        string sqlCommand = "SELECT grant_user FROM AppUser WHERE user_name_app=@UserName AND password_user=@PasswordUser";
+                        string sqlCommand = "SELECT grant_user, ID_user FROM AppUser WHERE user_name_app=@UserName AND password_user=@PasswordUser";
                         SqlCommand command = new SqlCommand(sqlCommand, connection);
                         
                         command.Parameters.Add("@UserName", SqlDbType.VarChar, 100).Value = _user;
@@ -103,6 +107,8 @@ namespace CruiseBlackSea
                         dataTable = dataSet.Tables[0];
 
                         DataRow row = dataTable.Rows[0];
+                        IdCurrentUserLogged = Convert.ToInt32(row["ID_user"]);
+
                         if (row["grant_user"].ToString() == "0")
                         {
                             return 0; //current _user is normal _user -> Tourist

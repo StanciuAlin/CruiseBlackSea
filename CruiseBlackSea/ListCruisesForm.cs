@@ -13,7 +13,9 @@ namespace CruiseBlackSea
 {
     public partial class ListCruisesForm : Form
     {
-        string connString = "Data Source=DESKTOP-I3Q9AOD\\SQLEXPRESS;Initial Catalog=cruise;Integrated Security=True";
+        string _connString = "Data Source=DESKTOP-I3Q9AOD\\SQLEXPRESS;Initial Catalog=cruise;Integrated Security=True";
+
+        static public String CurrentCruise { get; private set; }
 
         public ListCruisesForm()
         {
@@ -47,7 +49,7 @@ namespace CruiseBlackSea
 
         private void cbxSelectCruisePeriod_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            using (SqlConnection connection = new SqlConnection(connString))
+            using (SqlConnection connection = new SqlConnection(_connString))
             {
                 try
                 {
@@ -72,6 +74,7 @@ namespace CruiseBlackSea
                         dataSet.Reset();
                         dataAdapter.Fill(dataSet);
                         dataTable = dataSet.Tables[0];
+                        
 
                         //set column header for data showed
                         dataTable.Columns[0].ColumnName = "ID";
@@ -87,8 +90,8 @@ namespace CruiseBlackSea
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    throw;
+                    MessageBox.Show("There are no records.", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //throw;
                 }
                 finally
                 {

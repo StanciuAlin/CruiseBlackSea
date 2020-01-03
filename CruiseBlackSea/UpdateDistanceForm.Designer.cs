@@ -52,10 +52,10 @@
             this.btnSaveDistance.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSaveDistance.Font = new System.Drawing.Font("Stencil", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSaveDistance.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.btnSaveDistance.Location = new System.Drawing.Point(125, 173);
-            this.btnSaveDistance.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSaveDistance.Location = new System.Drawing.Point(148, 214);
+            this.btnSaveDistance.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.btnSaveDistance.Name = "btnSaveDistance";
-            this.btnSaveDistance.Size = new System.Drawing.Size(135, 35);
+            this.btnSaveDistance.Size = new System.Drawing.Size(160, 42);
             this.btnSaveDistance.TabIndex = 21;
             this.btnSaveDistance.Text = "Save";
             this.btnSaveDistance.UseVisualStyleBackColor = false;
@@ -66,7 +66,8 @@
             this.lblTitleUpdateDistanceForm.AutoSize = true;
             this.lblTitleUpdateDistanceForm.Font = new System.Drawing.Font("Stencil", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitleUpdateDistanceForm.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.lblTitleUpdateDistanceForm.Location = new System.Drawing.Point(59, 15);
+            this.lblTitleUpdateDistanceForm.Location = new System.Drawing.Point(82, 18);
+            this.lblTitleUpdateDistanceForm.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTitleUpdateDistanceForm.Name = "lblTitleUpdateDistanceForm";
             this.lblTitleUpdateDistanceForm.Size = new System.Drawing.Size(356, 24);
             this.lblTitleUpdateDistanceForm.TabIndex = 22;
@@ -76,9 +77,10 @@
             // 
             this.lblStartHarbour.AutoSize = true;
             this.lblStartHarbour.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.lblStartHarbour.Location = new System.Drawing.Point(58, 65);
+            this.lblStartHarbour.Location = new System.Drawing.Point(69, 78);
+            this.lblStartHarbour.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblStartHarbour.Name = "lblStartHarbour";
-            this.lblStartHarbour.Size = new System.Drawing.Size(148, 20);
+            this.lblStartHarbour.Size = new System.Drawing.Size(171, 24);
             this.lblStartHarbour.TabIndex = 23;
             this.lblStartHarbour.Text = "Start harbour";
             // 
@@ -86,9 +88,10 @@
             // 
             this.lblEndHarbour.AutoSize = true;
             this.lblEndHarbour.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.lblEndHarbour.Location = new System.Drawing.Point(58, 99);
+            this.lblEndHarbour.Location = new System.Drawing.Point(69, 119);
+            this.lblEndHarbour.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEndHarbour.Name = "lblEndHarbour";
-            this.lblEndHarbour.Size = new System.Drawing.Size(127, 20);
+            this.lblEndHarbour.Size = new System.Drawing.Size(148, 24);
             this.lblEndHarbour.TabIndex = 24;
             this.lblEndHarbour.Text = "End harbour";
             // 
@@ -96,9 +99,10 @@
             // 
             this.lblDistance.AutoSize = true;
             this.lblDistance.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.lblDistance.Location = new System.Drawing.Point(58, 133);
+            this.lblDistance.Location = new System.Drawing.Point(69, 160);
+            this.lblDistance.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDistance.Name = "lblDistance";
-            this.lblDistance.Size = new System.Drawing.Size(89, 20);
+            this.lblDistance.Size = new System.Drawing.Size(103, 24);
             this.lblDistance.TabIndex = 25;
             this.lblDistance.Text = "Distance";
             // 
@@ -108,10 +112,11 @@
             this.statusStripUpdateDistance.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.statusStripUpdateDistance.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLblDateTime});
-            this.statusStripUpdateDistance.Location = new System.Drawing.Point(0, 223);
+            this.statusStripUpdateDistance.Location = new System.Drawing.Point(0, 272);
             this.statusStripUpdateDistance.Name = "statusStripUpdateDistance";
+            this.statusStripUpdateDistance.Padding = new System.Windows.Forms.Padding(1, 0, 17, 0);
             this.statusStripUpdateDistance.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.statusStripUpdateDistance.Size = new System.Drawing.Size(411, 22);
+            this.statusStripUpdateDistance.Size = new System.Drawing.Size(486, 22);
             this.statusStripUpdateDistance.TabIndex = 29;
             this.statusStripUpdateDistance.Text = "statusStripUpdateDistanceForm";
             // 
@@ -131,7 +136,7 @@
             // cbxStartHarbourUpdateDistanceForm
             // 
             this.cbxStartHarbourUpdateDistanceForm.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.cbxStartHarbourUpdateDistanceForm.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.cbxStartHarbourUpdateDistanceForm.ForeColor = System.Drawing.Color.RoyalBlue;
             this.cbxStartHarbourUpdateDistanceForm.FormattingEnabled = true;
             this.cbxStartHarbourUpdateDistanceForm.Items.AddRange(new object[] {
             "1 - Constanta",
@@ -147,15 +152,16 @@
             "11 - Ialta",
             "12 - Sevastopol",
             "13 - Odessa"});
-            this.cbxStartHarbourUpdateDistanceForm.Location = new System.Drawing.Point(200, 62);
+            this.cbxStartHarbourUpdateDistanceForm.Location = new System.Drawing.Point(236, 74);
+            this.cbxStartHarbourUpdateDistanceForm.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbxStartHarbourUpdateDistanceForm.Name = "cbxStartHarbourUpdateDistanceForm";
-            this.cbxStartHarbourUpdateDistanceForm.Size = new System.Drawing.Size(148, 28);
+            this.cbxStartHarbourUpdateDistanceForm.Size = new System.Drawing.Size(174, 32);
             this.cbxStartHarbourUpdateDistanceForm.TabIndex = 30;
             // 
             // cbxEndHarbourUpdateDistanceForm
             // 
             this.cbxEndHarbourUpdateDistanceForm.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.cbxEndHarbourUpdateDistanceForm.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.cbxEndHarbourUpdateDistanceForm.ForeColor = System.Drawing.Color.RoyalBlue;
             this.cbxEndHarbourUpdateDistanceForm.FormattingEnabled = true;
             this.cbxEndHarbourUpdateDistanceForm.Items.AddRange(new object[] {
             "1 - Constanta",
@@ -171,24 +177,28 @@
             "11 - Ialta",
             "12 - Sevastopol",
             "13 - Odessa"});
-            this.cbxEndHarbourUpdateDistanceForm.Location = new System.Drawing.Point(200, 96);
+            this.cbxEndHarbourUpdateDistanceForm.Location = new System.Drawing.Point(236, 115);
+            this.cbxEndHarbourUpdateDistanceForm.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbxEndHarbourUpdateDistanceForm.Name = "cbxEndHarbourUpdateDistanceForm";
-            this.cbxEndHarbourUpdateDistanceForm.Size = new System.Drawing.Size(148, 28);
+            this.cbxEndHarbourUpdateDistanceForm.Size = new System.Drawing.Size(174, 32);
             this.cbxEndHarbourUpdateDistanceForm.TabIndex = 31;
             // 
             // tbxDistanceBetweenHarboursUpdateDistanceForm
             // 
-            this.tbxDistanceBetweenHarboursUpdateDistanceForm.Location = new System.Drawing.Point(200, 130);
+            this.tbxDistanceBetweenHarboursUpdateDistanceForm.Font = new System.Drawing.Font("Swis721 BT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxDistanceBetweenHarboursUpdateDistanceForm.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.tbxDistanceBetweenHarboursUpdateDistanceForm.Location = new System.Drawing.Point(236, 156);
+            this.tbxDistanceBetweenHarboursUpdateDistanceForm.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbxDistanceBetweenHarboursUpdateDistanceForm.Name = "tbxDistanceBetweenHarboursUpdateDistanceForm";
-            this.tbxDistanceBetweenHarboursUpdateDistanceForm.Size = new System.Drawing.Size(148, 28);
+            this.tbxDistanceBetweenHarboursUpdateDistanceForm.Size = new System.Drawing.Size(174, 31);
             this.tbxDistanceBetweenHarboursUpdateDistanceForm.TabIndex = 32;
             // 
             // UpdateDistanceForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(411, 245);
+            this.ClientSize = new System.Drawing.Size(486, 294);
             this.Controls.Add(this.tbxDistanceBetweenHarboursUpdateDistanceForm);
             this.Controls.Add(this.cbxEndHarbourUpdateDistanceForm);
             this.Controls.Add(this.cbxStartHarbourUpdateDistanceForm);
@@ -198,10 +208,10 @@
             this.Controls.Add(this.lblStartHarbour);
             this.Controls.Add(this.lblTitleUpdateDistanceForm);
             this.Controls.Add(this.btnSaveDistance);
-            this.Font = new System.Drawing.Font("Stencil", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4);
-            this.MaximumSize = new System.Drawing.Size(429, 292);
-            this.MinimumSize = new System.Drawing.Size(429, 292);
+            this.Font = new System.Drawing.Font("Stencil", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.MaximumSize = new System.Drawing.Size(504, 341);
+            this.MinimumSize = new System.Drawing.Size(504, 341);
             this.Name = "UpdateDistanceForm";
             this.Text = "Update distance";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.UpdateDistanceForm_FormClosing);

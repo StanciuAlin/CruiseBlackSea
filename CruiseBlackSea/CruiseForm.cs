@@ -12,7 +12,6 @@ namespace CruiseBlackSea
 {
     public partial class CruiseForm : Form
     {
-
         // adaug un label cu traseul scris
 
         public CruiseForm()
@@ -25,6 +24,10 @@ namespace CruiseBlackSea
             timerDateTime.Interval = 1000;
             timerDateTime.Tick += new EventHandler(timerDateTime_Tick);
             timerDateTime.Enabled = true;
+
+            //hardcoded!!! 
+            lblFinalCruise.Text = "1 3 5 7";
+
         }
 
         private void timerDateTime_Tick(object sender, EventArgs e)
