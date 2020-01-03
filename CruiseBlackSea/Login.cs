@@ -14,15 +14,17 @@ namespace CruiseBlackSea
 {
     public partial class Login : Form
     {
-        private DataSet dataSet = new DataSet();
-        private DataTable dataTable = new DataTable();
-        private Thread threadCurrentUserForm;
-        private String message = "Welcome ";
+        private DataSet _dataSet = new DataSet();
+        private DataTable _dataTable = new DataTable();
 
-        private string user = "";
-        private string password = "";
+        private Thread _threadCurrentUserForm;
 
-        string connString = "Data Source=DESKTOP-I3Q9AOD\\SQLEXPRESS;Initial Catalog=cruise;Integrated Security=True";
+        private String _messageCurrentUser = "Welcome ";
+
+        private string _user = "";
+        private string _password = "";
+
+        private string _connString = "Data Source=DESKTOP-I3Q9AOD\\SQLEXPRESS;Initial Catalog=cruise;Integrated Security=True";
 
         public Login()
         {
@@ -32,10 +34,10 @@ namespace CruiseBlackSea
 
         private void btnLogInLoginForm_Click(object sender, EventArgs e)
         {
-            user = tbxUserName.Text;
-            password = tbxPassword.Text;
+            _user = tbxUserName.Text;
+            _password = tbxPassword.Text;
 
-            using (SqlConnection connection = new SqlConnection(connString))
+            using (SqlConnection connection = new SqlConnection(_connString))
             {
                 connection.Open();
                 
@@ -50,12 +52,12 @@ namespace CruiseBlackSea
                         {
                             MessageBox.Show("Successfully log in! ");
                             
-                            this.message = this.message + tbxUserName.Text;
+                            this._messageCurrentUser = this._messageCurrentUser + tbxUserName.Text;
                             //Create a new thread with a new form
                             this.Close();
-                            threadCurrentUserForm = new Thread(openLoginForm);
-                            threadCurrentUserForm.SetApartmentState(ApartmentState.STA);
-                            threadCurrentUserForm.Start();
+                            _threadCurrentUserForm = new Thread(openLoginForm);
+                            _threadCurrentUserForm.SetApartmentState(ApartmentState.STA);
+                            _threadCurrentUserForm.Start();
                         }
                         else
                         {
@@ -76,24 +78,23 @@ namespace CruiseBlackSea
 
         private int getCurrentUserType()
         {
-            using (SqlConnection connection = new SqlConnection(connString))
+            using (SqlConnection connection = new SqlConnection(_connString))
             {
                 try
                 {
                     connection.Open();
-                    //Console.WriteLine(this.tbxUserName.Text + "hhhhhh");
+
                     using (LogInModel logInModel = new LogInModel())
                     {
-
-                        //Sql command to get type of user
+                        // Sql command to get type of _user
                         string sqlCommand = "SELECT grant_user FROM AppUser WHERE user_name_app=@UserName AND password_user=@PasswordUser";
                         SqlCommand command = new SqlCommand(sqlCommand, connection);
-                        Console.WriteLine(tbxUserName.Text);
-                        command.Parameters.Add("@UserName", SqlDbType.VarChar, 100).Value = user;
-                        command.Parameters.Add("@PasswordUser", SqlDbType.VarChar, 100).Value = password;
+                        
+                        command.Parameters.Add("@UserName", SqlDbType.VarChar, 100).Value = _user;
+                        command.Parameters.Add("@PasswordUser", SqlDbType.VarChar, 100).Value = _password;
                         command.ExecuteNonQuery();
-                        SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
 
+                        SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
                         DataTable dataTable = new DataTable();
                         DataSet dataSet = new DataSet();
 
@@ -102,16 +103,13 @@ namespace CruiseBlackSea
                         dataTable = dataSet.Tables[0];
 
                         DataRow row = dataTable.Rows[0];
-                        Console.WriteLine();
-                        string message = "Welcome n " + tbxUserName.Top;
-
                         if (row["grant_user"].ToString() == "0")
                         {
-                            return 0; //current user is normal user -> Tourist
+                            return 0; //current _user is normal _user -> Tourist
                         }
                         else if (row["grant_user"].ToString() == "1")
                         {
-                            return 1; //current user is admin user -> Admin
+                            return 1; //current _user is admin _user -> Admin
                         }
                         else
                         {
@@ -137,11 +135,11 @@ namespace CruiseBlackSea
             CurrentUserManager currentUserManager = new CurrentUserManager();
             if(getCurrentUserType() == 0)
             {
-                currentUserManager.SetCurrentUser(message, 0);
+                currentUserManager.SetCurrentUser(_messageCurrentUser, 0);
             }
             else if(getCurrentUserType() == 1)
             {
-                currentUserManager.SetCurrentUser(message, 1);
+                currentUserManager.SetCurrentUser(_messageCurrentUser, 1);
             }
         }
 

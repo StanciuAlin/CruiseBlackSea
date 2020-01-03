@@ -10,12 +10,12 @@ namespace CruiseBlackSea
 {
     class CurrentUserManager
     {
-        private int typeUser = -1;
+        private int _typeUser = -1;
 
-        Thread threadAdminForm;
-        Thread threadTouristForm;
+        private Thread _threadAdminForm;
+        private Thread _threadTouristForm;
 
-        private string messageWelcome = "";
+        private string _messageWelcome = "";
 
         public CurrentUserManager()
         {
@@ -24,40 +24,39 @@ namespace CruiseBlackSea
 
         public void SetCurrentUser(string messageWelcome, int flag)
         {
-            this.messageWelcome = messageWelcome;
-            this.typeUser = flag;
+            this._messageWelcome = messageWelcome;
+            this._typeUser = flag;
 
-            if (typeUser == 0)
+            if (_typeUser == 0)
             {
                 //Create a new Tourist form
-                //start a new thread for update form
-                threadTouristForm = new Thread(OpenTouristForm);
-                threadTouristForm.SetApartmentState(ApartmentState.STA);
-                threadTouristForm.Start();
+                _threadTouristForm = new Thread(OpenTouristForm);
+                _threadTouristForm.SetApartmentState(ApartmentState.STA);
+                _threadTouristForm.Start();
 
             }
-            else if (typeUser == 1)
+            else if (_typeUser == 1)
             {
                 //Create a new Admin form
-                threadAdminForm = new Thread(OpenAdminForm);
-                threadAdminForm.SetApartmentState(ApartmentState.STA);
-                threadAdminForm.Start();
+                _threadAdminForm = new Thread(OpenAdminForm);
+                _threadAdminForm.SetApartmentState(ApartmentState.STA);
+                _threadAdminForm.Start();
             }
             else
             {
-                MessageBox.Show("Incorrect user selected!", "User Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Incorrect _user selected!", "User Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void OpenTouristForm()
         {
-            Application.Run(new TouristForm(this.messageWelcome));
+            Application.Run(new TouristForm(this._messageWelcome));
 
         }
 
         private void OpenAdminForm()
         {
-            Application.Run(new AdminForm(this.messageWelcome));
+            Application.Run(new AdminForm(this._messageWelcome));
 
         }
 

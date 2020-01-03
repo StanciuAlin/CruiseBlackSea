@@ -12,6 +12,9 @@ namespace CruiseBlackSea
 {
     public partial class CruiseForm : Form
     {
+
+        // adaug un label cu traseul scris
+
         public CruiseForm()
         {
             InitializeComponent();
@@ -32,21 +35,21 @@ namespace CruiseBlackSea
             }));
         }
 
-        private void pictureBox1_Paint(object sender, PaintEventArgs e)
-        {
-            e.Graphics.DrawLine(
-            new Pen(Color.Red, 7f),
-            new Point(0, 0),
-            new Point(200, 27));
+        //private void pictureBox1_Paint(object sender, PaintEventArgs e)
+        //{
+        //    e.Graphics.DrawLine(
+        //    new Pen(Color.Red, 7f),
+        //    new Point(0, 0),
+        //    new Point(200, 27));
 
-            e.Graphics.DrawLine(
-            new Pen(Color.Red, 7f),
-            new Point(200, 27),
-            new Point(115, 464));
+        //    e.Graphics.DrawLine(
+        //    new Pen(Color.Red, 7f),
+        //    new Point(200, 27),
+        //    new Point(115, 464));
 
-            e.Graphics.DrawEllipse(
-                new Pen(Color.Red, 2f),
-                0, 0, pictureBox1.Size.Width, pictureBox1.Size.Height);
-        }
+        //    e.Graphics.DrawEllipse(
+        //        new Pen(Color.Red, 2f),
+        //        0, 0, pictureBox1.Size.Width, pictureBox1.Size.Height);
+        //}
     }
 }

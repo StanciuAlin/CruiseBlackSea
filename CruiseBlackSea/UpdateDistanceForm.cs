@@ -54,7 +54,7 @@ namespace CruiseBlackSea
                     using (LogInModel logInModel = new LogInModel())
                     {
 
-                        //Sql command to update the distance between 2 harbours which are inserted in current form
+                        //Sql command to update the distance between 2 _harbours which are inserted in current form
 
                         string sqlCommand = "UPDATE cruise.dbo.Distance SET distance=@distance WHERE ID_harbour_source=@ID_harbour_source AND ID_harbour_dest=@ID_harbour_dest";
                         SqlCommand command = new SqlCommand(sqlCommand, connection);

@@ -13,96 +13,100 @@ namespace CruiseBlackSea
 {
     public partial class AdminForm : Form
     {
-        Thread threadUpdateDistance;
-        Thread threadListCruises;
+        private Thread _threadUpdateDistance;
+        private Thread _threadListCruises;
 
-        private bool flagEndCreateCruise = false;
-        HashSet<int> harbours = new HashSet<int>();
+        private bool _flagEndCreateCruise = false;
+        HashSet<int> _harbours = new HashSet<int>();
 
         public AdminForm(string messageWelcome)
         {
             InitializeComponent();
 
+            // label to show application software version
             toolStripStatusLabelVersion.Text = "Version 1.0";
             toolStripStatusLblDateTime.Alignment = ToolStripItemAlignment.Left;
             toolStripStatusLabelVersion.Alignment = ToolStripItemAlignment.Right;
 
-            //timer
+            // timer to show the local time
             System.Windows.Forms.Timer timerDateTime = new System.Windows.Forms.Timer();
             timerDateTime.Interval = 1000;
             timerDateTime.Tick += new EventHandler(timerDateTime_Tick);
             timerDateTime.Enabled = true;
-            //first message -> Title
+
             lblWelcomeCurrentUserForm.Text += messageWelcome;
 
             pbBlackSea.Enabled = false;
         }   
 
         #region HarboursButtons
+        /*
+         * add the desired harbours for cruise
+         */
         private void btnConstanta_Click(object sender, EventArgs e)
         {
-            harbours.Add(1);
+            _harbours.Add(1);
         }
 
         private void btnVarna_Click(object sender, EventArgs e)
         {
-            harbours.Add(2);
+            _harbours.Add(2);
         }
 
         private void brnBurgas_Click(object sender, EventArgs e)
         {
-            harbours.Add(3);
+            _harbours.Add(3);
         }
 
         private void btnIstanbul_Click(object sender, EventArgs e)
         {
-            harbours.Add(4);
+            _harbours.Add(4);
         }
 
         private void btnKozlu_Click(object sender, EventArgs e)
         {
-            harbours.Add(5);
+            _harbours.Add(5);
         }
 
         private void btnSamsun_Click(object sender, EventArgs e)
         {
-            harbours.Add(6);
+            _harbours.Add(6);
         }
 
         private void btnBatumi_Click(object sender, EventArgs e)
         {
-            harbours.Add(7);
+            _harbours.Add(7);
         }
 
         private void btnSokhumi_Click(object sender, EventArgs e)
         {
-            harbours.Add(8);
+            _harbours.Add(8);
         }
 
         private void btnSochi_Click(object sender, EventArgs e)
         {
-            harbours.Add(9);
+            _harbours.Add(9);
 
         }
 
         private void btnAnapa_Click(object sender, EventArgs e)
         {
-            harbours.Add(10);
+            _harbours.Add(10);
         }
 
         private void btnIalta_Click(object sender, EventArgs e)
         {
-            harbours.Add(11);
+            _harbours.Add(11);
         }
 
         private void btnSevastopol_Click(object sender, EventArgs e)
         {
-            harbours.Add(12);
+            _harbours.Add(12);
         }
 
         private void btnOdessa_Click(object sender, EventArgs e)
         {
-            harbours.Add(13);
+            _harbours.Add(13);
         }
         #endregion
 
@@ -120,13 +124,12 @@ namespace CruiseBlackSea
         #region Thread for Update form
         private void btnUpdateDistances_Click(object sender, EventArgs e)
         {
-            //SQL update
             btnInitAll.Enabled = false;
 
-            //start a new thread for update form
-            threadUpdateDistance = new Thread(openUpdateDistanceForm);
-            threadUpdateDistance.SetApartmentState(ApartmentState.STA);
-            threadUpdateDistance.Start();
+            //start a new Thread for Update form and a SQL query
+            _threadUpdateDistance = new Thread(openUpdateDistanceForm);
+            _threadUpdateDistance.SetApartmentState(ApartmentState.STA);
+            _threadUpdateDistance.Start();
 
         }
 
@@ -137,24 +140,18 @@ namespace CruiseBlackSea
 
         #endregion
 
-        private void btnSaveCoordinates_Click(object sender, EventArgs e)
-        {
-            //SQL save
-            
-        }
 
         private void btnGenerateCruises_Click(object sender, EventArgs e)
         {
             gbxCruisesCurrentUser.Enabled = true;
-            //algo to generate random cruises
+            // algo to generate random cruises
         }
-
 
         private void btnListCruises_Click(object sender, EventArgs e)
         {
-            threadListCruises = new Thread(openListCruisesForm);
-            threadListCruises.SetApartmentState(ApartmentState.STA);
-            threadListCruises.Start();
+            _threadListCruises = new Thread(openListCruisesForm);
+            _threadListCruises.SetApartmentState(ApartmentState.STA);
+            _threadListCruises.Start();
         }
 
         private void openListCruisesForm()
@@ -167,15 +164,16 @@ namespace CruiseBlackSea
 
         #region Create custom cruises
 
+
         private void btnCreateCruiseCurrentUserForm_Click(object sender, EventArgs e)
         {
             pbBlackSea.Enabled = true;
-            MessageBox.Show("Please select the harbours (with red circle on map) for your desired cruise in order from Black Sea map", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Please select the _harbours (with red circle on map) for your desired cruise in order from Black Sea map", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             //enable all buttons to select a cruise
             EnableAllButtonsForCruise();
 
-            if (!flagEndCreateCruise)
+            if (!_flagEndCreateCruise)
             {
                 pbBlackSea.Click += new EventHandler(pbBlackSea_Click);
             }
@@ -183,7 +181,7 @@ namespace CruiseBlackSea
 
         private void btnFinishCruiseCurrentUserForm_Click(object sender, EventArgs e)
         {
-            flagEndCreateCruise = true;
+            _flagEndCreateCruise = true;
             pbBlackSea.Enabled = false;
         }
 

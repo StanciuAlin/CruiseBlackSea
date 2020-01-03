@@ -14,6 +14,7 @@ namespace CruiseBlackSea
     public partial class StartApp : Form
     {
         Thread threadLogin;
+
         public StartApp()
         {
             InitializeComponent();

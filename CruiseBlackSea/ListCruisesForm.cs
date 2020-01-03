@@ -55,12 +55,12 @@ namespace CruiseBlackSea
                     using (LogInModel logInModel = new LogInModel())
                     {
 
-                        //Sql command to get cruises conditioned by period of cruise, selected by user
+                        //Sql command to get cruises conditioned by period of cruise, selected by _user
 
                         string sqlCommand = "SELECT ID_cruise, harbour_list, date_start, date_end, price, number_passengers FROM Cruise WHERE type_cruise=@type_cruise";
                         SqlCommand command = new SqlCommand(sqlCommand, connection);
 
-                        //add period of cruise selected by user
+                        //add period of cruise selected by _user
                         command.Parameters.Add("@type_cruise", SqlDbType.Int, 100, "type_cruise").Value = Convert.ToString(cbxSelectCruisePeriod.SelectedItem.ToString()[0]);
 
                         //retain data with data adapter, add data in data set, and show the table in data grid view
