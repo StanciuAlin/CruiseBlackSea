@@ -99,7 +99,7 @@
             this.lblCoordinates.Font = new System.Drawing.Font("Stencil", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCoordinates.Location = new System.Drawing.Point(965, 326);
             this.lblCoordinates.Name = "lblCoordinates";
-            this.lblCoordinates.Size = new System.Drawing.Size(0, 20);
+            this.lblCoordinates.Size = new System.Drawing.Size(0, 17);
             this.lblCoordinates.TabIndex = 2;
             // 
             // btnFinishCruiseCurrentUserForm
@@ -127,7 +127,7 @@
             this.lblWelcomeCurrentUserForm.ForeColor = System.Drawing.Color.DodgerBlue;
             this.lblWelcomeCurrentUserForm.Location = new System.Drawing.Point(470, 13);
             this.lblWelcomeCurrentUserForm.Name = "lblWelcomeCurrentUserForm";
-            this.lblWelcomeCurrentUserForm.Size = new System.Drawing.Size(0, 29);
+            this.lblWelcomeCurrentUserForm.Size = new System.Drawing.Size(0, 22);
             this.lblWelcomeCurrentUserForm.TabIndex = 4;
             // 
             // btnVarna
@@ -374,10 +374,10 @@
             this.toolStripStatusLabelCoordinates,
             this.toolStripStatusLabelVersion});
             this.statusStripUpdateDistance.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
-            this.statusStripUpdateDistance.Location = new System.Drawing.Point(0, 533);
+            this.statusStripUpdateDistance.Location = new System.Drawing.Point(0, 538);
             this.statusStripUpdateDistance.Name = "statusStripUpdateDistance";
             this.statusStripUpdateDistance.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.statusStripUpdateDistance.Size = new System.Drawing.Size(1199, 28);
+            this.statusStripUpdateDistance.Size = new System.Drawing.Size(1199, 23);
             this.statusStripUpdateDistance.TabIndex = 30;
             this.statusStripUpdateDistance.Text = "statusStripCurrentUserForm";
             // 
@@ -386,7 +386,7 @@
             this.toolStripStatusLblDateTime.Font = new System.Drawing.Font("Sitka Small", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripStatusLblDateTime.ForeColor = System.Drawing.Color.DodgerBlue;
             this.toolStripStatusLblDateTime.Name = "toolStripStatusLblDateTime";
-            this.toolStripStatusLblDateTime.Size = new System.Drawing.Size(0, 23);
+            this.toolStripStatusLblDateTime.Size = new System.Drawing.Size(0, 18);
             // 
             // toolStripStatusLabelCoordinates
             // 
@@ -394,13 +394,13 @@
             this.toolStripStatusLabelCoordinates.ForeColor = System.Drawing.Color.DodgerBlue;
             this.toolStripStatusLabelCoordinates.Name = "toolStripStatusLabelCoordinates";
             this.toolStripStatusLabelCoordinates.Padding = new System.Windows.Forms.Padding(400, 0, 0, 0);
-            this.toolStripStatusLabelCoordinates.Size = new System.Drawing.Size(599, 23);
+            this.toolStripStatusLabelCoordinates.Size = new System.Drawing.Size(558, 18);
             this.toolStripStatusLabelCoordinates.Text = "Coordinates X = 0; Y = 0";
             // 
             // toolStripStatusLabelVersion
             // 
             this.toolStripStatusLabelVersion.Name = "toolStripStatusLabelVersion";
-            this.toolStripStatusLabelVersion.Size = new System.Drawing.Size(0, 23);
+            this.toolStripStatusLabelVersion.Size = new System.Drawing.Size(0, 18);
             // 
             // timerDateTime
             // 
@@ -432,7 +432,7 @@
             this.Controls.Add(this.btnIstanbul);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "AdminForm";
-            this.Text = "Current User";
+            this.Text = "Admin Form";
             ((System.ComponentModel.ISupportInitialize)(this.pbBlackSea)).EndInit();
             this.gbxCruisesCurrentUser.ResumeLayout(false);
             this.gbxCruiseManagementCurrentUser.ResumeLayout(false);

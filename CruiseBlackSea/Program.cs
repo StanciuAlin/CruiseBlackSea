@@ -19,7 +19,7 @@ namespace CruiseBlackSea
             //Application.Run(new AdminForm("Heeeei", 0));
             //Application.Run(new UpdateDistanceForm());
             //Application.Run(new TouristForm("pop"));
-            Application.Run(new TouristForm("graef"));
+            Application.Run(new AdminForm("graef"));
 
         }
     }

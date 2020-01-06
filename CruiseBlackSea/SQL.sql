@@ -50,10 +50,13 @@ INSERT INTO AppUser (ID_user, last_name, first_name, address_user, email_address
 ALTER TABLE AppUser ADD user_name_app varchar(100) NOT NULL;
 
 --insert a few cruises
-INSERT INTO cruise.dbo.Cruise VALUES (1, 3, '1 5 7 11', '2019-10-10', '2019-11-10', 1000, 2);
-INSERT INTO cruise.dbo.Cruise VALUES (2, 5, '1 5 7 11', '2019-10-10', '2019-10-15', 5000, 4);
-INSERT INTO cruise.dbo.Cruise VALUES (3, 8, '1 5 7 11', '2019-10-10', '2019-10-18', 432, 2);
-INSERT INTO cruise.dbo.Cruise VALUES (4, 3, '1 5 7 11', '2019-10-10', '2019-10-13', 10000, 10);
+INSERT INTO cruise.dbo.Cruise VALUES (3, '1 5 7 11', '2019-10-10', '2019-11-10', 1000, 2, 1);
+INSERT INTO cruise.dbo.Cruise VALUES (5, '1 5 7 11', '2019-10-10', '2019-10-15', 5000, 4, 2);
+INSERT INTO cruise.dbo.Cruise VALUES (8, '1 5 7 11', '2019-10-10', '2019-10-18', 432, 2, 1);
+INSERT INTO cruise.dbo.Cruise VALUES (3, '1 5 7 11', '2019-10-10', '2019-10-13', 10000, 10, 1);
+
+--delete records after a time with no one user id assigned
+DELETE FROM cruise.dbo.Cruise WHERE user_id_cruise IS NULL;
 
 --insert harbours coordinates
 INSERT INTO cruise.dbo.Harbour (ID_harbour, harbour_name, position_x, position_y) VALUES (1, 'Constanta', 94, 216);

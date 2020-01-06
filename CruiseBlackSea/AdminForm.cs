@@ -1,12 +1,11 @@
-﻿using System;
+﻿using Combinatorics.Collections;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
-using System.Linq;
-using System.Text;
+using System.IO;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CruiseBlackSea
@@ -19,9 +18,13 @@ namespace CruiseBlackSea
         private bool _flagEndCreateCruise = false;
         HashSet<int> _harbours = new HashSet<int>();
 
+        private string _connString = "Data Source=DESKTOP-I3Q9AOD\\SQLEXPRESS;Initial Catalog=cruise;Integrated Security=True";
+
         public AdminForm(string messageWelcome)
         {
             InitializeComponent();
+
+            CheckOneDayElapsed();
 
             // label to show application software version
             toolStripStatusLabelVersion.Text = "Version 1.0";
@@ -143,8 +146,57 @@ namespace CruiseBlackSea
 
         private void btnGenerateCruises_Click(object sender, EventArgs e)
         {
-            gbxCruisesCurrentUser.Enabled = true;
+
             // algo to generate random cruises
+            //now, I generate all cruises with 4 harbours, but if the customer want more, we can increase the number of harbours ( to implement)
+
+            gbxCruisesCurrentUser.Enabled = true;
+
+            int[] inputCruises = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13 };
+
+            Combinations<int> combinations = new Combinations<int>(inputCruises, 4);
+            string cformat = "Combinations of Cruises choose 4: size = {0}";
+            Console.WriteLine(String.Format(cformat, combinations.Count));
+            int counter = 0;
+
+            IList<int>[] comb = new IList<int>[combinations.Count];
+            foreach (IList<int> c in combinations)
+            {
+                //Console.WriteLine(String.Format("Cruise {0}: {1} {2} {3} {4}", counter, c[0], c[1], c[2], c[3]));
+                comb.SetValue(c, counter);
+                counter++;
+            }
+
+            List<string> cruises = new List<string>();
+            string currentCruise = "";
+            foreach(IList<int> c in combinations)
+            {
+                currentCruise = currentCruise + c[0] + " " + c[1] + " " + c[2] + " " + c[3];
+                cruises.Add(currentCruise);
+                currentCruise = "";
+            }
+
+            Console.WriteLine(comb[0][0].ToString() + comb[0][1].ToString() + comb[0][2].ToString() + comb[0][3].ToString());
+
+            for (int i = 0; i < 10; i++)
+            {
+                InsertCruise(cruises[i]);
+            }
+
+            try
+            {
+                using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"E:\Projects VS\CruiseBlackSea\CruiseBlackSea\log.txt"))
+                {
+                    file.WriteLine(DateTime.Now);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("The file could not be read:");
+                Console.WriteLine(ex.Message);
+            }
+            btnGenerateCruises.Enabled = false;
+
         }
 
         private void btnListCruises_Click(object sender, EventArgs e)
@@ -189,6 +241,107 @@ namespace CruiseBlackSea
         #endregion
 
         #region Utilities
+
+        private void CheckOneDayElapsed()
+        {
+            String logDate = "";
+            try
+            {   // Open the text file using a stream reader.
+                using (StreamReader sr = new StreamReader("log.txt"))
+                {
+                    // Read the stream to a string, and write the string to the console.
+                    logDate = sr.ReadToEnd();
+                }
+            }
+            catch (IOException ex)
+            {
+                Console.WriteLine("The file could not be read:");
+                Console.WriteLine(ex.Message);
+            }
+
+            if ((DateTime.Now - Convert.ToDateTime(logDate)).TotalDays >= 1)
+            {
+                DeleteCruisesGeneratedOverrated();
+            }
+
+        }
+
+        private void DeleteCruisesGeneratedOverrated()
+        {
+            using (SqlConnection connection = new SqlConnection(_connString))
+            {
+                try
+                {
+                    connection.Open();
+                    using (LogInModel logInModel = new LogInModel())
+                    {
+                        //Sql command to get cruises conditioned by period of cruise, selected by _user
+
+                        //string sqlCommand = "TRUNCATE TABLE cruise.dbo.Cruise";
+                        string sqlCommand = "DELETE FROM cruise.dbo.Cruise WHERE user_id_cruise IS NULL";
+                        SqlCommand command = new SqlCommand(sqlCommand, connection);
+
+                        
+                        //command.Parameters.Add("@user_id_cruise", SqlDbType.Int, 100, "user_id_cruise").Value = null;
+                        command.ExecuteNonQuery();
+                        //retain data with data adapter, add data in data set, and show the table in data grid view
+
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    throw;
+                }
+                finally
+                {
+                    connection.Close();
+                }
+            }
+        }
+
+        private void InsertCruise(string cruise)
+        {
+            using (SqlConnection connection = new SqlConnection(_connString))
+            {
+                try
+                {
+                    connection.Open();
+                    using (LogInModel logInModel = new LogInModel())
+                    {
+                        //Sql command to get cruises conditioned by period of cruise, selected by _user
+
+                        string sqlCommand = "INSERT INTO Cruise.dbo.Cruise (type_cruise, harbour_list, date_start, date_end, price, number_passengers) VALUES (@type_cruise, @harbour_list, @date_start, @date_end, @price, @number_passengers);";
+                        SqlCommand command = new SqlCommand(sqlCommand, connection);
+
+                        var today = DateTime.Now;
+                        var tomorrow = today.AddDays(1);
+                        var yesterday = today.AddDays(-1);
+
+                        //add period of cruise selected by _user
+                        command.Parameters.Add("@type_cruise", SqlDbType.Int, 100, "type_cruise").Value = 3;
+                        command.Parameters.Add("@harbour_list", SqlDbType.VarChar, 100, "harbour_list").Value = cruise;
+                        command.Parameters.Add("@date_start", SqlDbType.Date, 100, "date_start").Value = DateTime.Now;
+                        command.Parameters.Add("@date_end", SqlDbType.Date, 100, "date_end").Value = DateTime.Now.AddDays(3);
+                        command.Parameters.Add("@price", SqlDbType.Real, 100).Value = Convert.ToString(2 * 100);
+                        command.Parameters.Add("@number_passengers", SqlDbType.Int, 100, "number_passengers").Value = 2;
+                        //command.Parameters.Add("@user_id_cruise", SqlDbType.Int, 100, "user_id_cruise").Value = Login.IdCurrentUserLogged;
+                        command.ExecuteNonQuery();
+                        //retain data with data adapter, add data in data set, and show the table in data grid view
+
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    throw;
+                }
+                finally
+                {
+                    connection.Close();
+                }
+            }
+        }
 
         private void timerDateTime_Tick(object sender, EventArgs e)
         {
